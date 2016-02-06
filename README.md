@@ -2,7 +2,7 @@
 
 This is a Tip Calculator application for iOS submitted as the [pre-assignment](https://gist.github.com/timothy1ee/7747214) requirement for CodePath.
 
-Time spent: ~4-5 hours
+Time spent: ~6 hours
 
 Completed:
 
@@ -14,3 +14,10 @@ Completed:
 * [Yes] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 ![Video Walkthrough](tippy.gif)
+
+-----
+Notes:
+
+My first iOS app
+* I got stuck in a few areas but Apple Docs + Stackover allowed me to push through
+* TLDR: I wanted to create a tip calculator that is simple and just tells you what to pay. I hope you like my interpretation!
