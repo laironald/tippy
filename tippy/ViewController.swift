@@ -15,11 +15,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var billText: UITextField!
     @IBOutlet weak var tipSelect: UISegmentedControl!
 
+
+    func formatNumber(num: Double) -> String {
+        var formatter = NSNumberFormatter();
+        formatter.numberStyle = .CurrencyStyle;
+        formatter.maximumFractionDigits = 2;
+        
+        return formatter.stringFromNumber(num)!;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tipLabel.text = "-";
-        totalLabel.text = "-";
+        tipLabel.text = formatNumber(0);
+        totalLabel.text = formatNumber(0);
     }
     override func viewDidAppear(animated: Bool) {
         // auto select billText
@@ -30,18 +39,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func onEditingChange(sender: AnyObject) {
         var billAmount = billText.text._bridgeToObjectiveC().doubleValue
         var tip = billAmount * [0.18, 0.20, 0.22][tipSelect.selectedSegmentIndex];
         var total = billAmount + tip;
         
-        var formatter = NSNumberFormatter();
-        formatter.numberStyle = .CurrencyStyle;
-        formatter.maximumFractionDigits = 2;
-        
-        tipLabel.text = formatter.stringFromNumber(tip);
-        totalLabel.text = formatter.stringFromNumber(total);
+        tipLabel.text = formatNumber(tip);
+        totalLabel.text = formatNumber(total);
     }
 }
 
