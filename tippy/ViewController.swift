@@ -106,12 +106,11 @@ class ViewController: UIViewController {
     
     @IBAction func onEditingChange(sender: AnyObject) {
         billValues["bill"] = billText.text._bridgeToObjectiveC().doubleValue;
-        
         billValues["tip"] = billValues["bill"]! * Double(tipArray[tipSelect.selectedSegmentIndex]) / 100;
         billValues["total"] = billValues["bill"]! + billValues["tip"]!;
         billValues["people"] = Double(payerSelect.selectedSegmentIndex + 1);
         billValues["pay"] = Double(ceil(100 * billValues["total"]! / billValues["people"]!) / 100);
-        
+
         payLabel.text = formatNumber(billValues["pay"]!);
     }
     // clear taps on UISegmentedControl too
