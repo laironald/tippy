@@ -95,6 +95,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var payLabel: UILabel!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var payerLabel: UILabel!
+    @IBOutlet weak var payLabel1: UILabel!
+    @IBOutlet weak var payLabel2: UILabel!
+    @IBOutlet weak var changeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +126,16 @@ class ViewController: UIViewController {
         billValues["pay"] = Double(ceil(100 * billValues["total"]! / billValues["people"]!) / 100);
 
         payLabel.text = formatNumber(billValues["pay"]!);
+        let people = String(format: "%.0f", billValues["people"]!);
+        let tip = String(format: "%.0f", billValues["tip"]!);
+        if billValues["people"] == 1 {
+            //couldnt figure out how to do string interpolation w/ dictionaries
+            payLabel1.text = "at \(tip)%:";
+            payLabel2.text = "you pay";
+        } else {
+            payLabel1.text = "\(people) people at \(tip)%:";
+            payLabel2.text = "each person pays";
+        }
     }
     // clear taps on UISegmentedControl too
     @IBAction func onSelectChange(sender: UISegmentedControl) {
@@ -136,20 +149,24 @@ class ViewController: UIViewController {
             self.payerSelect.alpha = 1;
             self.tipLabel.alpha = 1;
             self.tipSelect.alpha = 1;
+            self.changeLabel.alpha = 0;
             self.payLabel.frame.origin.y = 415;
+            self.payLabel1.frame.origin.y = 365;
+            self.payLabel2.frame.origin.y = 385;
             }, completion: { (finished: Bool) -> () in
                 
         });
     }
     @IBAction func onBillText(sender: AnyObject) {
-        //        payerSelect.alpha = 0
-        //        payerSelect.frame.origin.y = 140
         UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
             self.payerLabel.alpha = 0;
             self.payerSelect.alpha = 0;
             self.tipLabel.alpha = 0;
             self.tipSelect.alpha = 0;
-            self.payLabel.frame.origin.y = 180; //400
+            self.changeLabel.alpha = 1;
+            self.payLabel.frame.origin.y = 215; //415
+            self.payLabel1.frame.origin.y = 165; //365
+            self.payLabel2.frame.origin.y = 185; //385
             }, completion: { (finished: Bool) -> () in
                 
         });
