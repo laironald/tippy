@@ -1,6 +1,6 @@
-![Tippy Logo](images/tippy.png)
-
 # Tippy
+
+![Tippy Logo](images/tippy.png)
 
 This is a Tip Calculator application for iOS submitted as the [pre-assignment](https://gist.github.com/timothy1ee/7747214) requirement for CodePath.
 
@@ -15,14 +15,7 @@ Completed:
 * [No] Optional: Remembering the bill amount across app restarts (if <10mins)
 * [No] Optional: Using locale-specific currency and currency thousands separators.
 
-![Video Walkthrough](tippy.gif)
-
 -----
-### Notes:
-
-My first iOS app
-* I got stuck in a few areas but Apple Docs + Stackover allowed me to push through
-* TLDR: I wanted to create a tip calculator that is simple and just tells you what to pay. I hope you like my interpretation!
 
 # Instructions:
 
@@ -35,5 +28,16 @@ My first iOS app
 3. How many people are paying? (Supports up to 4 people!)
 
 * BAM! Tippy instantly tells you how much to pay
-* Need proof. No sweat. Show details.
-* Tips can be better? No sweat. Change the settings.
+* Need proof? No sweat. Easily show the details.
+* Better tips? No sweat. Just change the settings.
+
+## Demo
+
+![Video Walkthrough](tippy.gif)
+
+### Notes:
+
+My first iOS app
+* I got stuck in a few areas but Apple Docs + Stackover allowed me to push through
+* TLDR: I wanted to create a tip calculator that is simple and just tells you what to pay. I hope you like my interpretation!
+* It was a fun assignment and nice way to explore the Swift documentation.
