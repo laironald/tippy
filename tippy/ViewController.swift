@@ -50,6 +50,36 @@ class DetailsViewController: UIViewController {
     }
 }
 
+class SettingsViewController: UIViewController {
+    @IBOutlet weak var tip1Text: UITextField!
+    @IBOutlet weak var tip2Text: UITextField!
+    @IBOutlet weak var tip3Text: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tip1Text.text = String(tipArray[0]);
+        tip2Text.text = String(tipArray[0]);
+        tip3Text.text = String(tipArray[0]);
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    @IBAction func tipChange(sender: AnyObject) {
+        if tip1Text.text != "" {
+            tipArray[0] = tip1Text.text.toInt()!;
+        }
+        if tip2Text.text != "" {
+            tipArray[0] = tip2Text.text.toInt()!;
+        }
+        if tip3Text.text != "" {
+            tipArray[0] = tip3Text.text.toInt()!;
+        }
+    }
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true);
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var billText: UITextField!
@@ -62,8 +92,11 @@ class ViewController: UIViewController {
         payLabel.text = formatNumber(0);
     }
     override func viewDidAppear(animated: Bool) {
-        // auto select billText
-        billText.becomeFirstResponder();
+        // auto select billText only if empty
+        if billText.text == "" {
+            billText.becomeFirstResponder();
+        }
+        onEditingChange(true);
     }
 
     override func didReceiveMemoryWarning() {
