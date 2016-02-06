@@ -8,11 +8,42 @@
 
 import UIKit
 
-var tip1 = 0.15;
+/////////////////////////
+// global stuff        //
+// - this feels hacky! //
+/////////////////////////
+var tipArray = [10, 15, 20];
+var billValues: [String:Double] = [
+    "bill": 0,
+    "tip": 0,
+    "total": 0,
+    "people": 2,
+    "pay": 0
+];
+
+func formatNumber(num: Double) -> String {
+    var formatter = NSNumberFormatter();
+    formatter.numberStyle = .CurrencyStyle;
+    formatter.maximumFractionDigits = 2;
+    
+    return formatter.stringFromNumber(num)!;
+}
+//////////////////////////
 
 class DetailsViewController: UIViewController {
+    @IBOutlet weak var billLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var peopleLabel: UILabel!
+    @IBOutlet weak var payLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        billLabel.text = formatNumber(billValues["bill"]!);
+        totalLabel.text = formatNumber(billValues["total"]!);
+        tipLabel.text = formatNumber(billValues["tip"]!);
+        peopleLabel.text = formatNumber(billValues["people"]!);
+        payLabel.text = formatNumber(billValues["pay"]!);
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -21,25 +52,14 @@ class DetailsViewController: UIViewController {
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billText: UITextField!
     @IBOutlet weak var tipSelect: UISegmentedControl!
     @IBOutlet weak var payerSelect: UISegmentedControl!
-
-    func formatNumber(num: Double) -> String {
-        var formatter = NSNumberFormatter();
-        formatter.numberStyle = .CurrencyStyle;
-        formatter.maximumFractionDigits = 2;
-        
-        return formatter.stringFromNumber(num)!;
-    }
+    @IBOutlet weak var payLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tipLabel.text = formatNumber(0);
-        totalLabel.text = formatNumber(0);
+        payLabel.text = formatNumber(0);
     }
     override func viewDidAppear(animated: Bool) {
         // auto select billText
@@ -52,12 +72,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEditingChange(sender: AnyObject) {
-        var billAmount = billText.text._bridgeToObjectiveC().doubleValue
-        var tip = billAmount * [tip1, 0.20, 0.22][tipSelect.selectedSegmentIndex];
-        var total = billAmount + tip;
+        billValues["bill"] = billText.text._bridgeToObjectiveC().doubleValue;
         
-        tipLabel.text = formatNumber(tip);
-        totalLabel.text = formatNumber(total);
+        billValues["tip"] = billValues["bill"]! * Double(tipArray[tipSelect.selectedSegmentIndex]) / 100;
+        billValues["total"] = billValues["bill"]! + billValues["tip"]!;
+        billValues["pay"] = billValues["total"]! / billValues["people"]!;
+        
+        payLabel.text = formatNumber(billValues["pay"]!);
     }
     // clear taps on UISegmentedControl too
     @IBAction func onSelectChange(sender: UISegmentedControl) {
