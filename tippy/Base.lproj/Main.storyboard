@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Tipper-->
+        <!--Tippy-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="tippy" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                             <outletCollection property="gestureRecognizers" destination="8jd-Zd-7jM" appends="YES" id="1Hh-hh-Pm3"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tipper" id="gaj-wO-dT2">
+                    <navigationItem key="navigationItem" title="Tippy" id="gaj-wO-dT2">
                         <barButtonItem key="rightBarButtonItem" title="Details" id="gkT-zn-Gwy">
                             <connections>
                                 <segue destination="PHz-kF-8kf" kind="push" id="Aal-at-AGV"/>
