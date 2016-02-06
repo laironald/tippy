@@ -42,7 +42,7 @@ class DetailsViewController: UIViewController {
         billLabel.text = formatNumber(billValues["bill"]!);
         totalLabel.text = formatNumber(billValues["total"]!);
         tipLabel.text = formatNumber(billValues["tip"]!);
-        peopleLabel.text = formatNumber(billValues["people"]!);
+        peopleLabel.text = String(format: "%.0f", billValues["people"]!);
         payLabel.text = formatNumber(billValues["pay"]!);
     }
     override func didReceiveMemoryWarning() {
@@ -109,7 +109,8 @@ class ViewController: UIViewController {
         
         billValues["tip"] = billValues["bill"]! * Double(tipArray[tipSelect.selectedSegmentIndex]) / 100;
         billValues["total"] = billValues["bill"]! + billValues["tip"]!;
-        billValues["pay"] = billValues["total"]! / billValues["people"]!;
+        billValues["people"] = Double(payerSelect.selectedSegmentIndex + 1);
+        billValues["pay"] = Double(ceil(100 * billValues["total"]! / billValues["people"]!) / 100);
         
         payLabel.text = formatNumber(billValues["pay"]!);
     }
@@ -118,7 +119,6 @@ class ViewController: UIViewController {
         onTap(true);
         onEditingChange(true);
     }
-    
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true);
     }
