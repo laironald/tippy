@@ -127,7 +127,7 @@ class ViewController: UIViewController {
 
         payLabel.text = formatNumber(billValues["pay"]!);
         let people = String(format: "%.0f", billValues["people"]!);
-        let tip = String(format: "%.0f", billValues["tip"]!);
+        let tip = String(format: "%.0f", Double(tipArray[tipSelect.selectedSegmentIndex]));
         if billValues["people"] == 1 {
             //couldnt figure out how to do string interpolation w/ dictionaries
             payLabel1.text = "at \(tip)%:";
