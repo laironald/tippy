@@ -28,6 +28,9 @@ func formatNumber(num: Double) -> String {
     
     return formatter.stringFromNumber(num)!;
 }
+
+/* I've decided to keep these all in the same file. If they were to get huge, I would separate */
+
 //////////////////////////
 
 class DetailsViewController: UIViewController {
@@ -49,6 +52,8 @@ class DetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 }
+
+//////////////////////////
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var tip1Text: UITextField!
@@ -80,12 +85,16 @@ class SettingsViewController: UIViewController {
     }
 }
 
+//////////////////////////
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var billText: UITextField!
     @IBOutlet weak var tipSelect: UISegmentedControl!
     @IBOutlet weak var payerSelect: UISegmentedControl!
     @IBOutlet weak var payLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var payerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +104,10 @@ class ViewController: UIViewController {
         // auto select billText only if empty
         if billText.text == "" {
             billText.becomeFirstResponder();
+            onBillText(true);
         }
         onEditingChange(true);
+        let transitionOptions = UIViewAnimationOptions.TransitionCurlUp
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,6 +115,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onBillText(sender: AnyObject) {
+        //        payerSelect.alpha = 0
+        //        payerSelect.frame.origin.y = 140
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+            self.payerLabel.alpha = 0;
+            self.payerSelect.alpha = 0;
+            self.tipLabel.alpha = 0;
+            self.tipSelect.alpha = 0;
+            self.payLabel.frame.origin.y = 180; //400
+            }, completion: { (finished: Bool) -> () in
+                
+        });
+    }
     @IBAction func onEditingChange(sender: AnyObject) {
         billValues["bill"] = billText.text._bridgeToObjectiveC().doubleValue;
         billValues["tip"] = billValues["bill"]! * Double(tipArray[tipSelect.selectedSegmentIndex]) / 100;
@@ -120,6 +144,17 @@ class ViewController: UIViewController {
     }
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true);
+
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+            self.payerLabel.alpha = 1;
+            self.payerSelect.alpha = 1;
+            self.tipLabel.alpha = 1;
+            self.tipSelect.alpha = 1;
+            self.payLabel.frame.origin.y = 400;
+            }, completion: { (finished: Bool) -> () in
+                
+        });
+    
     }
 }
 

@@ -24,7 +24,7 @@
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="ekL-ew-rdF">
-                                <rect key="frame" x="17" y="196" width="288" height="29"/>
+                                <rect key="frame" x="16" y="196" width="288" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="" image="Neutral-50"/>
@@ -70,12 +70,23 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="veY-zI-Yoa">
-                                <rect key="frame" x="15" y="402" width="291" height="60"/>
+                                <rect key="frame" x="15" y="400" width="291" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How much was the bill?" textAlignment="center" minimumFontSize="17" id="UPM-nJ-zUk">
+                                <rect key="frame" x="16" y="101" width="287" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="onBillText:" destination="vXZ-lx-hvc" eventType="touchDown" id="nyg-do-sSd"/>
+                                    <action selector="onEditingChange:" destination="vXZ-lx-hvc" eventType="editingChanged" id="vTE-Z1-xRW"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -94,8 +105,9 @@
                     <connections>
                         <outlet property="billText" destination="uTg-89-Gat" id="DMh-HF-ynN"/>
                         <outlet property="payLabel" destination="veY-zI-Yoa" id="MHd-ST-zKM"/>
+                        <outlet property="payerLabel" destination="HEH-hu-MYs" id="04X-Dc-l5a"/>
                         <outlet property="payerSelect" destination="T6O-tK-eLx" id="00C-09-Adl"/>
-                        <outlet property="tipLabel" destination="pdd-D6-lzr" id="Foa-lz-nKu"/>
+                        <outlet property="tipLabel" destination="5Yc-19-4Up" id="0vJ-1z-cbd"/>
                         <outlet property="tipSelect" destination="ekL-ew-rdF" id="ddv-ii-Lxt"/>
                     </connections>
                 </viewController>
