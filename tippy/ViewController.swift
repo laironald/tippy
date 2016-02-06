@@ -58,8 +58,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tip1Text.text = String(tipArray[0]);
-        tip2Text.text = String(tipArray[0]);
-        tip3Text.text = String(tipArray[0]);
+        tip2Text.text = String(tipArray[1]);
+        tip3Text.text = String(tipArray[2]);
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,10 +69,10 @@ class SettingsViewController: UIViewController {
             tipArray[0] = tip1Text.text.toInt()!;
         }
         if tip2Text.text != "" {
-            tipArray[0] = tip2Text.text.toInt()!;
+            tipArray[1] = tip2Text.text.toInt()!;
         }
         if tip3Text.text != "" {
-            tipArray[0] = tip3Text.text.toInt()!;
+            tipArray[2] = tip3Text.text.toInt()!;
         }
     }
     @IBAction func onTap(sender: AnyObject) {
