@@ -8,13 +8,24 @@
 
 import UIKit
 
+var tip1 = 0.15;
+
+class DetailsViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billText: UITextField!
     @IBOutlet weak var tipSelect: UISegmentedControl!
-
+    @IBOutlet weak var payerSelect: UISegmentedControl!
 
     func formatNumber(num: Double) -> String {
         var formatter = NSNumberFormatter();
@@ -42,11 +53,20 @@ class ViewController: UIViewController {
     
     @IBAction func onEditingChange(sender: AnyObject) {
         var billAmount = billText.text._bridgeToObjectiveC().doubleValue
-        var tip = billAmount * [0.18, 0.20, 0.22][tipSelect.selectedSegmentIndex];
+        var tip = billAmount * [tip1, 0.20, 0.22][tipSelect.selectedSegmentIndex];
         var total = billAmount + tip;
         
         tipLabel.text = formatNumber(tip);
         totalLabel.text = formatNumber(total);
+    }
+    // clear taps on UISegmentedControl too
+    @IBAction func onSelectChange(sender: UISegmentedControl) {
+        onTap(true);
+        onEditingChange(true);
+    }
+    
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true);
     }
 }
 

@@ -30,7 +30,7 @@
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="ekL-ew-rdF">
-                                <rect key="frame" x="16" y="196" width="288" height="29"/>
+                                <rect key="frame" x="16" y="177" width="288" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="" image="Neutral-50"/>
@@ -38,56 +38,59 @@
                                     <segment title="" image="In Love-50"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onEditingChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="WzP-cl-7RP"/>
+                                    <action selector="onSelectChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="4Du-xO-VVY"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your service?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Yc-19-4Up">
-                                <rect key="frame" x="16" y="159" width="178" height="21"/>
+                                <rect key="frame" x="16" y="148" width="178" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's paying?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HEH-hu-MYs">
-                                <rect key="frame" x="15" y="249" width="178" height="21"/>
+                                <rect key="frame" x="15" y="234" width="178" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="T6O-tK-eLx">
-                                <rect key="frame" x="16" y="286" width="287" height="29"/>
+                                <rect key="frame" x="16" y="270" width="287" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Just me"/>
-                                    <segment title="2 of us"/>
-                                    <segment title="3 of us"/>
-                                    <segment title="4 peeps!"/>
+                                    <segment title="" image="User Male-50"/>
+                                    <segment title="" image="User Group-50"/>
+                                    <segment title="" image="Conference Call-50"/>
+                                    <segment title="" image="Conference-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSelectChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="OFL-sr-GUl"/>
+                                </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gOG-VG-p7m">
-                                <rect key="frame" x="15" y="442" width="66" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pdd-D6-lzr">
-                                <rect key="frame" x="105" y="397" width="199" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gOG-VG-p7m">
+                                <rect key="frame" x="15" y="439" width="52" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="veY-zI-Yoa">
-                                <rect key="frame" x="97" y="442" width="206" height="36"/>
+                                <rect key="frame" x="97" y="439" width="206" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pdd-D6-lzr">
+                                <rect key="frame" x="104" y="395" width="199" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VXs-z6-owB">
-                                <rect key="frame" x="15" y="397" width="44" height="36"/>
+                                <rect key="frame" x="14" y="395" width="44" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -95,6 +98,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8jd-Zd-7jM" appends="YES" id="3zf-vP-QkA"/>
+                            <outletCollection property="gestureRecognizers" destination="8jd-Zd-7jM" appends="YES" id="1Hh-hh-Pm3"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tipper" id="gaj-wO-dT2">
                         <barButtonItem key="rightBarButtonItem" title="Details" id="gkT-zn-Gwy">
@@ -105,29 +113,44 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billText" destination="uTg-89-Gat" id="DMh-HF-ynN"/>
+                        <outlet property="payerSelect" destination="T6O-tK-eLx" id="00C-09-Adl"/>
                         <outlet property="tipLabel" destination="pdd-D6-lzr" id="Foa-lz-nKu"/>
                         <outlet property="tipSelect" destination="ekL-ew-rdF" id="ddv-ii-Lxt"/>
                         <outlet property="totalLabel" destination="veY-zI-Yoa" id="4BV-Et-7ze"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8jd-Zd-7jM">
+                    <connections>
+                        <action selector="onTap:" destination="vXZ-lx-hvc" id="cev-xI-752"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="529" y="289"/>
         </scene>
         <!--Details-->
         <scene sceneID="JPz-om-eoj">
             <objects>
-                <viewController id="PHz-kF-8kf" sceneMemberID="viewController">
+                <viewController id="PHz-kF-8kf" customClass="DetailsViewController" customModule="tippy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5md-Zs-vcw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="Mja-1a-t2y">
+                                <rect key="frame" x="38" y="100" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="detailsClick:" destination="PHz-kF-8kf" eventType="valueChanged" id="23N-YR-aDR"/>
+                                </connections>
+                            </stepper>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="12c-d3-mdp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7b-MI-1wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975" y="289"/>
+            <point key="canvasLocation" x="976" y="289"/>
         </scene>
         <!--Bill-->
         <scene sceneID="jeL-5j-Wr2">
@@ -185,10 +208,14 @@
     </scenes>
     <resources>
         <image name="Bill-50" width="25" height="25"/>
+        <image name="Conference Call-50" width="25" height="25"/>
+        <image name="Conference-50" width="25" height="25"/>
         <image name="Happy-50" width="25" height="25"/>
         <image name="In Love-50" width="25" height="25"/>
         <image name="Neutral-50" width="25" height="25"/>
         <image name="Settings-50" width="25" height="25"/>
+        <image name="User Group-50" width="25" height="25"/>
+        <image name="User Male-50" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
