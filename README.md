@@ -24,12 +24,12 @@ Completed:
 ## Just 3 simple steps:
 
 1. Tell us the bill amount
-2. How did you feel about the service?
+2. How did you feel about the service? (Meh, Happy, OMFG?)
 3. How many people are paying? (Supports up to 4 people!)
 
 * BAM! Tippy instantly tells you how much to pay
-* Need proof? No sweat. Easily show the details.
-* Better tips? No sweat. Just change the settings.
+* Auditor friend wants proof? No sweat! Easily show the details.
+* Cute server = Better tips? No sweat! Just change the settings.
 
 ## Demo
 
