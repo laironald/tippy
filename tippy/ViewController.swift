@@ -115,19 +115,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onBillText(sender: AnyObject) {
-        //        payerSelect.alpha = 0
-        //        payerSelect.frame.origin.y = 140
-        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
-            self.payerLabel.alpha = 0;
-            self.payerSelect.alpha = 0;
-            self.tipLabel.alpha = 0;
-            self.tipSelect.alpha = 0;
-            self.payLabel.frame.origin.y = 180; //400
-            }, completion: { (finished: Bool) -> () in
-                
-        });
-    }
     @IBAction func onEditingChange(sender: AnyObject) {
         billValues["bill"] = billText.text._bridgeToObjectiveC().doubleValue;
         billValues["tip"] = billValues["bill"]! * Double(tipArray[tipSelect.selectedSegmentIndex]) / 100;
@@ -144,17 +131,28 @@ class ViewController: UIViewController {
     }
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true);
-
         UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
             self.payerLabel.alpha = 1;
             self.payerSelect.alpha = 1;
             self.tipLabel.alpha = 1;
             self.tipSelect.alpha = 1;
-            self.payLabel.frame.origin.y = 400;
+            self.payLabel.frame.origin.y = 415;
             }, completion: { (finished: Bool) -> () in
                 
         });
-    
+    }
+    @IBAction func onBillText(sender: AnyObject) {
+        //        payerSelect.alpha = 0
+        //        payerSelect.frame.origin.y = 140
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+            self.payerLabel.alpha = 0;
+            self.payerSelect.alpha = 0;
+            self.tipLabel.alpha = 0;
+            self.tipSelect.alpha = 0;
+            self.payLabel.frame.origin.y = 180; //400
+            }, completion: { (finished: Bool) -> () in
+                
+        });
     }
 }
 
