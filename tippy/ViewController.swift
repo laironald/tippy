@@ -131,7 +131,7 @@ class ViewController: UIViewController {
         let tip = String(format: "%.0f", tipSelected);
         if billValues["people"] == 1 {
             //couldnt figure out how to do string interpolation w/ dictionaries
-            payLabel1.text = "at \(tip)%: tip";
+            payLabel1.text = "at \(tip)% tip:";
             payLabel2.text = "you pay";
         } else {
             payLabel1.text = "\(people) people at \(tip)% tip:";
