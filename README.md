@@ -42,7 +42,7 @@ My first iOS app
 * TLDR: I wanted to create a tip calculator that is simple and just tells you what to pay. I hope you like my interpretation!
 * It was a fun assignment and nice way to explore the Swift documentation.
 
-### If I was building this into a business: Future Feature Ideas
+### Future Feature Ideas
 
 If this is a problem I just wanted to solve. There are many feature ideas.
 
