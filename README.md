@@ -42,10 +42,15 @@ My first iOS app
 * TLDR: I wanted to create a tip calculator that is simple and just tells you what to pay. I hope you like my interpretation!
 * It was a fun assignment and nice way to explore the Swift documentation.
 
-### Feature Ideas
+### If I was building this into a business: Future Feature Ideas
+
+If this is a problem I just wanted to solve. There are many feature ideas.
 
 * Tipping culture is different in different locations. For example in AU, it is not customary to tip. Have a geolocated feature that sets different tips based on different countries.
 * Build a history of what you've paid. This can be helpful. Next time a friend asks, what's a good place to eat? You can easily make recs based on budget.
 * Tie in photos and integrate it with social media + apps like Yelp. So you can remember your social eating experiences a bit more. 
 * There are more complex scenarios of tipping. For example a friend invites you to dinner with his girlfriend. He will cover two people. The app can handle these use cases.
 * When it comes to paying, sometimes people don't have money on hand. A history can be helpful to know who owes who what. Or it can be tied to Venmo, Stripe, etc to ensure that equal payment is met.
+* Categorize meals and integrate app with finance based apps like Quickbook or expensing apps like Expensify. This way I can easily update my accountant on business expenses vs. friendly meals.
+* If it is one person paying, there may be a higher likelihood it is romamtic or developing a friendship. Have quick call to action to send flowers or other things.
+* After the meal is done, you might want to order a Uber or check the bus schedule. Have a quick call to check transportation options as next steps.
