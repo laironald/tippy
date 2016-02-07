@@ -12,8 +12,8 @@ Completed:
 * [Yes] Required: Settings page to change the default tip percentage.
 * [Yes] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 * [Yes] Optional: UI animations
+* [Yes] Optional: Using locale-specific currency and currency thousands separators.
 * [No] Optional: Remembering the bill amount across app restarts (if <10mins)
-* [No] Optional: Using locale-specific currency and currency thousands separators.
 
 -----
 
@@ -33,7 +33,7 @@ Completed:
 
 ## Demo
 
-![Video Walkthrough](tippy.gif)
+![Video Walkthrough](tippy.gif) ![Locale-Specific](tippy2.gif)
 
 ### Notes:
 

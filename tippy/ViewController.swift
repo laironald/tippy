@@ -101,6 +101,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var changeLabel: UILabel!
     
     override func viewDidLoad() {
+        println("1")
         super.viewDidLoad()
         payLabel.text = formatNumber(0);
     }
