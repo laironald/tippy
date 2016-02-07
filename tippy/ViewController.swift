@@ -23,9 +23,10 @@ var billValues: [String:Double] = [
 
 func formatNumber(num: Double) -> String {
     var formatter = NSNumberFormatter();
+    //formatter.locale = NSLocale(localeIdentifier: "es_ES")
     formatter.numberStyle = .CurrencyStyle;
     formatter.maximumFractionDigits = 2;
-    
+
     return formatter.stringFromNumber(num)!;
 }
 
@@ -100,6 +101,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var changeLabel: UILabel!
     
     override func viewDidLoad() {
+        println("1")
         super.viewDidLoad()
         payLabel.text = formatNumber(0);
     }
