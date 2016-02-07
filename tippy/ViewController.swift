@@ -28,6 +28,9 @@ func formatNumber(num: Double) -> String {
     
     return formatter.stringFromNumber(num)!;
 }
+
+/* I've decided to keep these all in the same file. If they were to get huge, I would separate */
+
 //////////////////////////
 
 class DetailsViewController: UIViewController {
@@ -49,6 +52,8 @@ class DetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 }
+
+//////////////////////////
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var tip1Text: UITextField!
@@ -80,12 +85,19 @@ class SettingsViewController: UIViewController {
     }
 }
 
+//////////////////////////
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var billText: UITextField!
     @IBOutlet weak var tipSelect: UISegmentedControl!
     @IBOutlet weak var payerSelect: UISegmentedControl!
     @IBOutlet weak var payLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var payerLabel: UILabel!
+    @IBOutlet weak var payLabel1: UILabel!
+    @IBOutlet weak var payLabel2: UILabel!
+    @IBOutlet weak var changeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +107,10 @@ class ViewController: UIViewController {
         // auto select billText only if empty
         if billText.text == "" {
             billText.becomeFirstResponder();
+            onBillText(true);
         }
         onEditingChange(true);
+        let transitionOptions = UIViewAnimationOptions.TransitionCurlUp
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,13 +119,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEditingChange(sender: AnyObject) {
+        var tipSelected = Double(tipArray[tipSelect.selectedSegmentIndex]);
         billValues["bill"] = billText.text._bridgeToObjectiveC().doubleValue;
-        billValues["tip"] = billValues["bill"]! * Double(tipArray[tipSelect.selectedSegmentIndex]) / 100;
+        billValues["tip"] = billValues["bill"]! * tipSelected / 100;
         billValues["total"] = billValues["bill"]! + billValues["tip"]!;
         billValues["people"] = Double(payerSelect.selectedSegmentIndex + 1);
         billValues["pay"] = Double(ceil(100 * billValues["total"]! / billValues["people"]!) / 100);
 
         payLabel.text = formatNumber(billValues["pay"]!);
+        let people = String(format: "%.0f", billValues["people"]!);
+        let tip = String(format: "%.0f", tipSelected);
+        if billValues["people"] == 1 {
+            //couldnt figure out how to do string interpolation w/ dictionaries
+            payLabel1.text = "at \(tip)% tip:";
+            payLabel2.text = "you pay";
+        } else {
+            payLabel1.text = "\(people) people at \(tip)% tip:";
+            payLabel2.text = "each person pays";
+        }
     }
     // clear taps on UISegmentedControl too
     @IBAction func onSelectChange(sender: UISegmentedControl) {
@@ -120,6 +145,36 @@ class ViewController: UIViewController {
     }
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true);
+        self.changeLabel.alpha = 0;
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+            self.payLabel.frame.origin.y = 415;
+            self.payLabel1.frame.origin.y = 365;
+            self.payLabel2.frame.origin.y = 385;
+            }, completion: { (finished: Bool) -> () in
+                UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+                    self.payerLabel.alpha = 1;
+                    self.payerSelect.alpha = 1;
+                    self.tipLabel.alpha = 1;
+                    self.tipSelect.alpha = 1;
+                    }, completion: { (finished: Bool) -> () in
+                });
+        });
+    }
+    @IBAction func onBillText(sender: AnyObject) {
+        self.payerLabel.alpha = 0;
+        self.payerSelect.alpha = 0;
+        self.tipLabel.alpha = 0;
+        self.tipSelect.alpha = 0;
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+            self.payLabel.frame.origin.y = 215; //415
+            self.payLabel1.frame.origin.y = 165; //365
+            self.payLabel2.frame.origin.y = 185; //385
+            }, completion: { (finished: Bool) -> () in
+                UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut,animations: {
+                    self.changeLabel.alpha = 1;
+                    }, completion: { (finished: Bool) -> () in
+                });
+        });
     }
 }
 
